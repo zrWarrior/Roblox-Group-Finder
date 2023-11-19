@@ -3,11 +3,11 @@ import threading
 import requests, random
 from dhooks import Webhook
 import ctypes
-ctypes.windll.kernel32.SetConsoleTitleW("Aleks Group Finder")
+ctypes.windll.kernel32.SetConsoleTitleW("Alex's Group Finder")
 
 
 def groupfinder():
-    id = random.randint(1000000, 1150000)
+    id = random.randint(1000000, 3200000)
     r = requests.get(f"https://www.roblox.com/groups/group.aspx?gid={id}") 
     if 'owned' not in r.text:
         re = requests.get(f"https://groups.roblox.com/v1/groups/{id}")
@@ -23,23 +23,11 @@ def groupfinder():
         print(f"[-] Group Already Owned: {id}")
 
 
-print("""
-
-
-____ _    ____ _  _ ____    ____ ____ ____ _  _ ___  
-|__| |    |___ |_/  [__     | __ |__/ |  | |  | |__] 
-|  | |___ |___ | \_ ___]    |__] |  \ |__| |__| |    
-                                                     
-____ _ _  _ ___  ____ ____ 
-|___ | |\ | |  \ |___ |__/ 
-|    | | \| |__/ |___ |  \ 
-                           
-""")
 
 #your webhook
-hook = input("[-] Enter your webhook url: "))
+hook = input("[-] Enter your webhook url: https://discord.com/api/webhooks/1175850510226555011/MhwsErwSqdyDi-71XQLpWwrPZZUwIcE-BO_s1oBZuBVY8U8DKwdRx02vKRr03GY6yWNw"))
 #number of threads
-threads = int(input("[-] How many threads: "))
+threads = int(input("[-] How many threads: 1000"))
 
 while True:
     if threading.active_count() <= threads:
